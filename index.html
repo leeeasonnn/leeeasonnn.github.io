@@ -53,7 +53,15 @@
             color: #1e3a5f;
             box-shadow: 0 6px 14px rgba(0,40,70,0.1);
         }
-
+        
+        .avatar-image {
+            width: 120px;          /* 与原来占位符宽度一致 */
+            height: 120px;
+            border-radius: 50%;    /* 圆形裁剪 */
+            object-fit: cover;     /* 保证图片填充且不变形 */
+            box-shadow: 0 6px 14px rgba(0,40,70,0.1);
+        }
+        
         .header-text h1 {
             font-size: 3rem;
             font-weight: 600;
@@ -321,9 +329,7 @@
     <div class="container">
         <!-- header -->
         <div class="profile-header">
-            <div class="avatar-placeholder">
-                YL
-            </div>
+<img src="assets/images/my-photo.jpg" alt="Yisen Li" class="avatar-image">
             <div class="header-text">
                 <h1>Yisen Li</h1>
                 <div class="subtitle">PhD in Physics · CUHK</div>
