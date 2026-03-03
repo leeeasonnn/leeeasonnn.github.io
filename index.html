@@ -42,12 +42,15 @@
 
         /* Avatar image style - place your photo at assets/images/my-photo.jpg */
         .avatar-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            box-shadow: 0 6px 14px rgba(0,40,70,0.1);
-            border: 2px solid #ffffff;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-size: auto 180px;    /* 高度固定为180px，宽度自动 */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #f0f5fc;      /* 可选：背景色，防止加载时空白 */
+    box-shadow: 0 6px 14px rgba(0,40,70,0.1);
+    border: 2px solid #ffffff;
         }
 
         .header-text h1 {
@@ -318,7 +321,7 @@
         <!-- Profile header with photo -->
         <div class="profile-header">
             <!-- Profile photo - place your image at assets/images/my-photo.jpg -->
-            <img src="cvphoto.jpg" alt="Yisen Li" class="avatar-image">
+           <div class="avatar-image" style="background-image: url('cvphoto.jpg');"></div>
             <div class="header-text">
                 <h1>Yisen Li</h1>
                 <div class="subtitle">PhD in Physics · CUHK</div>
