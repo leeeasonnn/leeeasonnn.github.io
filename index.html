@@ -40,28 +40,16 @@
             margin-bottom: 2.5rem;
         }
 
-        .avatar-placeholder {
+        /* Avatar image style - place your photo at assets/images/my-photo.jpg */
+        .avatar-image {
             width: 120px;
             height: 120px;
-            background: linear-gradient(135deg, #d9e2ef, #bdd3e8);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3.2rem;
-            font-weight: 500;
-            color: #1e3a5f;
+            object-fit: cover;
             box-shadow: 0 6px 14px rgba(0,40,70,0.1);
+            border: 2px solid #ffffff;
         }
-        
-        .avatar-image {
-            width: 120px;          /* 与原来占位符宽度一致 */
-            height: 120px;
-            border-radius: 50%;    /* 圆形裁剪 */
-            object-fit: cover;     /* 保证图片填充且不变形 */
-            box-shadow: 0 6px 14px rgba(0,40,70,0.1);
-        }
-        
+
         .header-text h1 {
             font-size: 3rem;
             font-weight: 600;
@@ -327,9 +315,10 @@
 </head>
 <body>
     <div class="container">
-        <!-- header -->
+        <!-- Profile header with photo -->
         <div class="profile-header">
-<img src="assets/images/my-photo.jpg" alt="Yisen Li" class="avatar-image">
+            <!-- Profile photo - place your image at assets/images/my-photo.jpg -->
+            <img src="assets/images/my-photo.jpg" alt="Yisen Li" class="avatar-image">
             <div class="header-text">
                 <h1>Yisen Li</h1>
                 <div class="subtitle">PhD in Physics · CUHK</div>
@@ -340,7 +329,7 @@
             </div>
         </div>
 
-        <!-- contact bar -->
+        <!-- Contact bar -->
         <div class="contact-bar">
             <div class="contact-item"><span class="icon">📍</span> LG207, Science Centre, CUHK, Hong Kong</div>
             <div class="contact-item"><span class="icon">📧</span> <a href="mailto:leeeasonnn@gmail.com">leeeasonnn@gmail.com</a></div>
@@ -348,11 +337,11 @@
             <div class="contact-item"><span class="icon">🔗</span> <a href="#">LinkedIn (placeholder)</a></div>
         </div>
 
-        <!-- main grid -->
+        <!-- Main two-column grid -->
         <div class="main-grid">
             <!-- LEFT COLUMN -->
             <div>
-                <!-- Education card -->
+                <!-- Education -->
                 <div class="info-card">
                     <div class="card-title">🎓 Education</div>
                     <ul class="item-list">
@@ -369,7 +358,7 @@
                     </ul>
                 </div>
 
-                <!-- Skills card (converted from table) -->
+                <!-- Technical Skills -->
                 <div class="info-card">
                     <div class="card-title">⚙️ Technical Skills</div>
                     <div>
@@ -401,16 +390,16 @@
                     </div>
                 </div>
 
-                <!-- Conference / Presentations (from CV) -->
+                <!-- Conference Reports -->
                 <div class="info-card">
                     <div class="card-title">🗓️ Conference Reports</div>
-                    <div style="font-style: italic; color: #4f658b; padding: 0.5rem 0;">Details available upon request · presented at multiple biophysics symposia (e.g., CUHK retreat, BSCB 2023).</div>
+                    <div style="font-style: italic; color: #4f658b; padding: 0.5rem 0;">Details available upon request · presented at multiple biophysics symposia (e.g., CUHK retreat, BSCB 2023).</div>
                 </div>
             </div>
 
             <!-- RIGHT COLUMN -->
             <div>
-                <!-- Research Projects (对应项目经历) -->
+                <!-- Research Projects -->
                 <div class="info-card">
                     <div class="card-title">🔬 Research Projects</div>
                     <div class="paper-item">
@@ -431,7 +420,7 @@
                     </div>
                 </div>
 
-                <!-- Teaching & Outreach (实践经历) -->
+                <!-- Teaching & Outreach -->
                 <div class="info-card">
                     <div class="card-title">🧑‍🏫 Teaching & Outreach</div>
                     <ul class="item-list">
@@ -448,12 +437,12 @@
                         <li>
                             <div class="item-title">Office Director, Youth Exchange Association</div>
                             <div class="item-meta">Beijing Normal University · 2014 – 2015</div>
-                            <div class="item-desc">Organized cross‑strait升学 & cultural seminars; managed association supplies and finances.</div>
+                            <div class="item-desc">Organized cross‑strait higher education opportunities & cultural seminars; managed association supplies and finances.</div>
                         </li>
                     </ul>
                 </div>
 
-                <!-- Additional skills / honors (none explicitly listed, we can leave a placeholder) -->
+                <!-- Highlights & Awards -->
                 <div class="info-card">
                     <div class="card-title">🏆 Highlights</div>
                     <div class="honor-grid">
@@ -467,7 +456,7 @@
                 </div>
             </div>
 
-            <!-- full width extra info (address repeated or anything) -->
+            <!-- Full-width extra info -->
             <div class="full-width" style="margin-top: 0.5rem;">
                 <div class="info-card" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
                     <span style="font-weight: 500;">📬  Full CV and references available upon request ·  Updated March 2025</span>
@@ -476,7 +465,7 @@
             </div>
         </div>
 
-        <!-- footer -->
+        <!-- Footer -->
         <div class="footer-note">
             ⚡  Yisen Li —  Physics PhD with strong quantitative, programming, and data analysis skills, aiming to apply them to quantitative finance and data-driven research.
         </div>
