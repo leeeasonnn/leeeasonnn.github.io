@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yisen Li · Physics PhD</title>
+    <!-- Inter font (clean, modern) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -8px rgba(0, 20, 30, 0.15);
+            padding: 2.5rem 2.5rem;
+        }
+
+        .profile-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .avatar-placeholder {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #d9e2ef, #bdd3e8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.2rem;
+            font-weight: 500;
+            color: #1e3a5f;
+            box-shadow: 0 6px 14px rgba(0,40,70,0.1);
+        }
+
+        .header-text h1 {
+            font-size: 3rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #0c283f;
+            line-height: 1.1;
+            margin-bottom: 0.3rem;
+        }
+
+        .header-text .subtitle {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #2c4b6f;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-text .tagline {
+            font-size: 1rem;
+            color: #4b6589;
+            max-width: 600px;
+            border-left: 4px solid #7899c7;
+            padding-left: 1rem;
+            background: #f0f5fc;
+            border-radius: 0 12px 12px 0;
+            padding: 0.7rem 1.2rem;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin: 1.8rem 0 2.2rem 0;
+            padding: 1.2rem 0;
+            border-top: 1px solid #e2eaf1;
+            border-bottom: 1px solid #e2eaf1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            color: #1e3a5f;
+            background: #f0f5fa;
+            padding: 0.3rem 1rem 0.3rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        .contact-item .icon {
+            font-size: 1.2rem;
+            width: 1.8rem;
+            height: 1.8rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .contact-item a {
+            color: #1e3a5f;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+            color: #0f2f50;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem 2.5rem;
+        }
+
+        .info-card {
+            background: #ffffff;
+            border: 1px solid #e9f0f5;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.8rem;
+            box-shadow: 0 4px 10px rgba(0, 20, 40, 0.02);
+            transition: all 0.2s;
+            height: fit-content;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 12px 24px -10px rgba(20, 60, 100, 0.15);
+            border-color: #cddeee;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0f2f4f;
+            letter-spacing: -0.01em;
+            border-bottom: 2px solid #dae5f0;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card-title span {
+            background: #e2ebf5;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            padding: 0.2rem 0.8rem;
+            margin-left: 0.8rem;
+            color: #1e4d7c;
+            font-weight: 500;
+        }
+
+        .item-list {
+            list-style: none;
+        }
+
+        .item-list li {
+            margin-bottom: 1rem;
+            padding-left: 0.2rem;
+        }
+
+        .item-title {
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: #143650;
+        }
+
+        .item-meta {
+            font-size: 0.9rem;
+            color: #4f658b;
+            margin-top: 0.15rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .item-meta span {
+            background: #e9f1f9;
+            padding: 0.15rem 0.7rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            color: #1e4d7c;
+        }
+
+        .item-desc {
+            font-size: 0.95rem;
+            color: #334e6e;
+            margin-top: 0.25rem;
+        }
+
+        .paper-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .paper-title {
+            font-weight: 600;
+            color: #143650;
+        }
+
+        .paper-authors {
+            font-size: 0.9rem;
+            color: #4a668a;
+            font-style: italic;
+        }
+
+        .paper-status {
+            font-size: 0.85rem;
+            background: #e2edfb;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            display: inline-block;
+            margin-top: 0.25rem;
+        }
+
+        .skill-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-top: 0.7rem;
+        }
+
+        .skill-badge {
+            background: #ecf3fa;
+            color: #1d3f64;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid #d0e1f0;
+        }
+
+        .honor-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .honor-item {
+            background: #f0f6fe;
+            border-radius: 40px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.9rem;
+            color: #1e4d7c;
+            border: 1px solid #d6e4f2;
+        }
+
+        .full-width {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 850px) {
+            .container {
+                padding: 1.8rem;
+            }
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .full-width {
+                grid-column: span 1;
+            }
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-text .tagline {
+                text-align: left;
+            }
+            .contact-bar {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-item {
+                width: 100%;
+            }
+        }
+
+        a {
+            color: #1f4a7a;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-note {
+            margin-top: 2.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7189a6;
+            border-top: 1px solid #e0eaf3;
+            padding-top: 1.5rem;
+        }
+        .footer-note a {
+            color: #2b5179;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- header -->
+        <div class="profile-header">
+            <div class="avatar-placeholder">
+                YL
+            </div>
+            <div class="header-text">
+                <h1>Yisen Li</h1>
+                <div class="subtitle">PhD in Physics · CUHK</div>
+                <div class="tagline">
+                    🔬  Experimental physics ·  quantitative image analysis ·  numerical modeling.  
+                    Seeking quantitative research roles in finance/industry.
+                </div>
+            </div>
+        </div>
+
+        <!-- contact bar -->
+        <div class="contact-bar">
+            <div class="contact-item"><span class="icon">📍</span> LG207, Science Centre, CUHK, Hong Kong</div>
+            <div class="contact-item"><span class="icon">📧</span> <a href="mailto:leeeasonnn@gmail.com">leeeasonnn@gmail.com</a></div>
+            <div class="contact-item"><span class="icon">📱</span> +86 18813144060</div>
+            <div class="contact-item"><span class="icon">🔗</span> <a href="#">LinkedIn (placeholder)</a></div>
+        </div>
+
+        <!-- main grid -->
+        <div class="main-grid">
+            <!-- LEFT COLUMN -->
+            <div>
+                <!-- Education card -->
+                <div class="info-card">
+                    <div class="card-title">🎓 Education</div>
+                    <ul class="item-list">
+                        <li>
+                            <div class="item-title">Ph.D. in Physics</div>
+                            <div class="item-meta">The Chinese University of Hong Kong · 2017 – 2024</div>
+                            <div class="item-desc">GPA: 3.758/4.0 · Thesis on bacterial chromosome dynamics and image analysis</div>
+                        </li>
+                        <li>
+                            <div class="item-title">B.Sc. in Physics</div>
+                            <div class="item-meta">Beijing Normal University · 2013 – 2017</div>
+                            <div class="item-desc">GPA: 88.68/100 · Graduation thesis on computational physics</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Skills card (converted from table) -->
+                <div class="info-card">
+                    <div class="card-title">⚙️ Technical Skills</div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: 0.4rem; color:#1b3f64;">Experimental & lab</div>
+                        <div class="skill-badge-container">
+                            <span class="skill-badge">Microbiology</span>
+                            <span class="skill-badge">Molecular biology</span>
+                            <span class="skill-badge">Optical microscopy</span>
+                            <span class="skill-badge">Microfluidics</span>
+                            <span class="skill-badge">Arduino / electronics</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.2rem;">
+                        <div style="font-weight: 600; margin-bottom: 0.4rem; color:#1b3f64;">Data & computation</div>
+                        <div class="skill-badge-container">
+                            <span class="skill-badge">Image analysis (ML)</span>
+                            <span class="skill-badge">Fluorescence signal</span>
+                            <span class="skill-badge">MATLAB</span>
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">Numerical simulation</span>
+                        </div>
+                    </div>
+                    <div style="margin-top: 1.2rem;">
+                        <div style="font-weight: 600; margin-bottom: 0.4rem; color:#1b3f64;">Languages</div>
+                        <div class="skill-badge-container">
+                            <span class="skill-badge">Chinese (native)</span>
+                            <span class="skill-badge">English (fluent, written & spoken)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Conference / Presentations (from CV) -->
+                <div class="info-card">
+                    <div class="card-title">🗓️ Conference Reports</div>
+                    <div style="font-style: italic; color: #4f658b; padding: 0.5rem 0;">Details available upon request · presented at multiple biophysics symposia (e.g., CUHK retreat, BSCB 2023).</div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div>
+                <!-- Research Projects (对应项目经历) -->
+                <div class="info-card">
+                    <div class="card-title">🔬 Research Projects</div>
+                    <div class="paper-item">
+                        <div class="paper-title">Analysis of bacterial chromosome states</div>
+                        <div class="paper-authors">CUHK · 2021 – 2024</div>
+                        <div class="item-desc" style="margin-top: 0.2rem;">
+                            • Tracked chromosome conformation via live-cell DNA staining and fluorescence microscopy.<br>
+                            • Applied machine-learning-based image analysis to classify chromosomal states.
+                        </div>
+                    </div>
+                    <div class="paper-item">
+                        <div class="paper-title">Proliferation of cell-wall-deficient bacteria</div>
+                        <div class="paper-authors">CUHK · 2017 – 2021</div>
+                        <div class="item-desc" style="margin-top: 0.2rem;">
+                            • Characterized bacterial growth, deformation, and division using molecular tools & microscopy.<br>
+                            • Developed MATLAB numerical simulations to reproduce bacterial dynamics.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teaching & Outreach (实践经历) -->
+                <div class="info-card">
+                    <div class="card-title">🧑‍🏫 Teaching & Outreach</div>
+                    <ul class="item-list">
+                        <li>
+                            <div class="item-title">Teaching Assistant</div>
+                            <div class="item-meta">CUHK · 2017 – 2021</div>
+                            <div class="item-desc">Courses: General Physics, Physics Lab, Introduction to Biophysics, Introduction to Soft Matter Physics, Instrumentation.</div>
+                        </li>
+                        <li>
+                            <div class="item-title">Teaching Practicum</div>
+                            <div class="item-meta">High School affiliated to BNU, Xiamen · Oct 2016</div>
+                            <div class="item-desc">Junior high Physics instructor.</div>
+                        </li>
+                        <li>
+                            <div class="item-title">Office Director, Youth Exchange Association</div>
+                            <div class="item-meta">Beijing Normal University · 2014 – 2015</div>
+                            <div class="item-desc">Organized cross‑strait升学 & cultural seminars; managed association supplies and finances.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Additional skills / honors (none explicitly listed, we can leave a placeholder) -->
+                <div class="info-card">
+                    <div class="card-title">🏆 Highlights</div>
+                    <div class="honor-grid">
+                        <span class="honor-item">CUHK Postgraduate Scholarship</span>
+                        <span class="honor-item">BNU Outstanding Student (2016)</span>
+                        <span class="honor-item">Excellent Teaching Assistant (2019)</span>
+                    </div>
+                    <div style="margin-top: 0.8rem; font-size:0.9rem;">
+                        • Proficient in cross-disciplinary collaboration (biology + physics + computation).
+                    </div>
+                </div>
+            </div>
+
+            <!-- full width extra info (address repeated or anything) -->
+            <div class="full-width" style="margin-top: 0.5rem;">
+                <div class="info-card" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 500;">📬  Full CV and references available upon request ·  Updated March 2025</span>
+                    <span style="color: #3f6792;">📧 leeeasonnn@gmail.com  |  📱 +86 18813144060</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+        <div class="footer-note">
+            ⚡  Yisen Li —  Physics PhD with strong quantitative, programming, and data analysis skills, aiming to apply them to quantitative finance and data-driven research.
+        </div>
+    </div>
+</body>
+</html>
