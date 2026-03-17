@@ -9,6 +9,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --container-padding: 2.5rem;
+            --grid-columns: 1fr 1fr;
+            --avatar-size: 140px;
+            --header-align: flex-start;
+            --text-align: left;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -20,7 +28,7 @@
             background-color: #f8fafc;
             color: #1e293b;
             line-height: 1.6;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1rem;
         }
 
         .container {
@@ -29,7 +37,7 @@
             background-color: #ffffff;
             border-radius: 2rem;
             box-shadow: 0 20px 35px -8px rgba(0, 20, 30, 0.15);
-            padding: 2.5rem 2.5rem;
+            padding: var(--container-padding);
         }
 
         .profile-header {
@@ -38,79 +46,82 @@
             align-items: center;
             gap: 2rem;
             margin-bottom: 2.5rem;
+            flex-direction: row;
+            text-align: var(--text-align);
         }
 
-        /* Avatar image style - place your photo at assets/images/my-photo.jpg */
+        /* Avatar image style */
         .avatar-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    background-size: auto 180px;    /* 高度固定为180px，宽度自动 */
-    background-position: center 0.1%;
-    background-repeat: no-repeat;
-    background-color: #f0f5fc;      /* 可选：背景色，防止加载时空白 */
-    box-shadow: 0 6px 14px rgba(0,40,70,0.1);
-    border: 2px solid #ffffff;
+            width: var(--avatar-size);
+            height: var(--avatar-size);
+            border-radius: 50%;
+            background-size: auto 180px;
+            background-position: center 8%;
+            background-repeat: no-repeat;
+            background-color: #f0f5fc;
+            box-shadow: 0 6px 14px rgba(0,40,70,0.1);
+            border: 3px solid #ffffff;
         }
 
         .header-text h1 {
-            font-size: 3rem;
-            font-weight: 600;
+            font-size: 3.2rem;
+            font-weight: 700;
             letter-spacing: -0.02em;
             color: #0c283f;
-            line-height: 1.1;
-            margin-bottom: 0.3rem;
+            line-height: 1.05;
+            margin-bottom: 0.4rem;
         }
 
         .header-text .subtitle {
-            font-size: 1.3rem;
-            font-weight: 400;
+            font-size: 1.4rem;
+            font-weight: 500;
             color: #2c4b6f;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
         }
 
         .header-text .tagline {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: #4b6589;
-            max-width: 600px;
+            max-width: 620px;
             border-left: 4px solid #7899c7;
-            padding-left: 1rem;
+            padding: 0.8rem 1.3rem;
             background: #f0f5fc;
-            border-radius: 0 12px 12px 0;
-            padding: 0.7rem 1.2rem;
+            border-radius: 0 14px 14px 0;
         }
 
         .contact-bar {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.8rem;
-            margin: 1.8rem 0 2.2rem 0;
+            gap: 1.4rem;
+            margin: 1.8rem 0 2.2rem;
             padding: 1.2rem 0;
             border-top: 1px solid #e2eaf1;
             border-bottom: 1px solid #e2eaf1;
+            justify-content: flex-start;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             font-size: 1rem;
             color: #1e3a5f;
             background: #f0f5fa;
-            padding: 0.3rem 1rem 0.3rem 0.8rem;
+            padding: 0.4rem 1.1rem 0.4rem 0.9rem;
             border-radius: 40px;
+            white-space: nowrap;
         }
 
         .contact-item .icon {
-            font-size: 1.2rem;
-            width: 1.8rem;
-            height: 1.8rem;
+            font-size: 1.3rem;
+            width: 2rem;
+            height: 2rem;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background: white;
             border-radius: 50%;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
         }
 
         .contact-item a {
@@ -120,51 +131,41 @@
         }
 
         .contact-item a:hover {
-            text-decoration: underline;
             color: #0f2f50;
+            text-decoration: underline;
         }
 
         .main-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem 2.5rem;
+            grid-template-columns: var(--grid-columns);
+            gap: 2.2rem 2.6rem;
         }
 
         .info-card {
             background: #ffffff;
             border: 1px solid #e9f0f5;
             border-radius: 1.5rem;
-            padding: 1.5rem 1.8rem;
+            padding: 1.6rem 1.9rem;
             box-shadow: 0 4px 10px rgba(0, 20, 40, 0.02);
             transition: all 0.2s;
-            height: fit-content;
         }
 
         .info-card:hover {
             box-shadow: 0 12px 24px -10px rgba(20, 60, 100, 0.15);
-            border-color: #cddeee;
+            border-color: #cdddee;
         }
 
         .card-title {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 600;
             color: #0f2f4f;
             letter-spacing: -0.01em;
             border-bottom: 2px solid #dae5f0;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.3rem;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.4rem;
             display: flex;
             align-items: center;
-        }
-
-        .card-title span {
-            background: #e2ebf5;
-            border-radius: 40px;
-            font-size: 0.9rem;
-            padding: 0.2rem 0.8rem;
-            margin-left: 0.8rem;
-            color: #1e4d7c;
-            font-weight: 500;
+            gap: 0.6rem;
         }
 
         .item-list {
@@ -172,41 +173,32 @@
         }
 
         .item-list li {
-            margin-bottom: 1rem;
-            padding-left: 0.2rem;
+            margin-bottom: 1.1rem;
         }
 
         .item-title {
             font-weight: 600;
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             color: #143650;
         }
 
         .item-meta {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: #4f658b;
-            margin-top: 0.15rem;
+            margin-top: 0.2rem;
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
         }
 
-        .item-meta span {
-            background: #e9f1f9;
-            padding: 0.15rem 0.7rem;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            color: #1e4d7c;
-        }
-
         .item-desc {
-            font-size: 0.95rem;
+            font-size: 0.97rem;
             color: #334e6e;
-            margin-top: 0.25rem;
+            margin-top: 0.3rem;
         }
 
         .paper-item {
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.3rem;
         }
 
         .paper-title {
@@ -215,48 +207,75 @@
         }
 
         .paper-authors {
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: #4a668a;
             font-style: italic;
         }
 
         .paper-status {
-            font-size: 0.85rem;
+            font-size: 0.86rem;
             background: #e2edfb;
-            padding: 0.2rem 0.7rem;
+            padding: 0.22rem 0.75rem;
             border-radius: 20px;
             display: inline-block;
-            margin-top: 0.25rem;
+            margin-top: 0.3rem;
         }
 
         .skill-badge-container {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.6rem;
-            margin-top: 0.7rem;
+            gap: 0.65rem;
+            margin-top: 0.8rem;
         }
 
         .skill-badge {
             background: #ecf3fa;
             color: #1d3f64;
-            padding: 0.3rem 1rem;
+            padding: 0.35rem 1.05rem;
             border-radius: 40px;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             font-weight: 500;
             border: 1px solid #d0e1f0;
+        }
+
+        .skill-subsection {
+            margin-top: 1.5rem;
+        }
+        .skill-subsection:first-of-type {
+            margin-top: 0;
+        }
+        .skill-subsection-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1b3f64;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        .skill-line {
+            margin-top: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem;
+        }
+        .skill-line-label {
+            font-weight: 500;
+            color: #1b3f64;
+            white-space: nowrap;
         }
 
         .honor-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.7rem;
+            gap: 0.8rem;
         }
 
         .honor-item {
             background: #f0f6fe;
             border-radius: 40px;
-            padding: 0.3rem 1.2rem;
-            font-size: 0.9rem;
+            padding: 0.35rem 1.25rem;
+            font-size: 0.92rem;
             color: #1e4d7c;
             border: 1px solid #d6e4f2;
         }
@@ -265,32 +284,85 @@
             grid-column: span 2;
         }
 
-        @media (max-width: 850px) {
-            .container {
-                padding: 1.8rem;
+        .footer-note {
+            margin-top: 3rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #7189a6;
+            border-top: 1px solid #e0eaf3;
+            padding-top: 1.6rem;
+        }
+
+        /* ────────────────────────────────────────────────
+           Mobile / Tablet adjustments
+        ──────────────────────────────────────────────── */
+        @media (max-width: 900px) {
+            :root {
+                --container-padding: 1.8rem;
+                --grid-columns: 1fr;
+                --avatar-size: 110px;
+                --header-align: center;
+                --text-align: center;
             }
-            .main-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+
+            body {
+                padding: 1rem 0.8rem;
             }
-            .full-width {
-                grid-column: span 1;
-            }
+
             .profile-header {
                 flex-direction: column;
+                align-items: center;
                 text-align: center;
             }
-            .header-text .tagline {
-                text-align: left;
+
+            .header-text h1 {
+                font-size: 2.6rem;
             }
+
+            .header-text .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .header-text .tagline {
+                text-align: center;
+                border-left: none;
+                border-radius: 12px;
+                padding: 1rem;
+                max-width: 90%;
+            }
+
             .contact-bar {
                 justify-content: center;
+                gap: 1.2rem 2rem;
+            }
+
+            .main-grid {
+                gap: 1.8rem;
+            }
+
+            .full-width {
+                grid-column: span 1;
             }
         }
 
         @media (max-width: 480px) {
+            :root {
+                --container-padding: 1.4rem;
+                --avatar-size: 100px;
+            }
+
+            .header-text h1 {
+                font-size: 2.2rem;
+            }
+
             .contact-item {
-                width: 100%;
+                flex: 1 1 45%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .contact-bar {
+                gap: 1rem 1.5rem;
             }
         }
 
@@ -302,32 +374,19 @@
         a:hover {
             text-decoration: underline;
         }
-
-        .footer-note {
-            margin-top: 2.5rem;
-            text-align: center;
-            font-size: 0.9rem;
-            color: #7189a6;
-            border-top: 1px solid #e0eaf3;
-            padding-top: 1.5rem;
-        }
-        .footer-note a {
-            color: #2b5179;
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <!-- Profile header with photo -->
         <div class="profile-header">
-            <!-- Profile photo - place your image at assets/images/my-photo.jpg -->
-           <div class="avatar-image" style="background-image: url('cvphoto.jpg');"></div>
+            <div class="avatar-image" style="background-image: url('cvphoto_compressed.jpg');"></div>
             <div class="header-text">
                 <h1>Yisen Li</h1>
                 <div class="subtitle">PhD in Physics · CUHK</div>
                 <div class="tagline">
-                    Multidisciplinary（Physics+Computation+Biology） · Experimental physics · Complex system ·  Quantitative image analysis ·  Numerical modeling.  
-                    Seeking quantitative research roles in finance/industry.
+                    Multidisciplinary (Physics + Computation + Biology) · Experimental physics · Complex systems · Quantitative image analysis · Numerical modeling.<br>
+                    Seeking quantitative research roles in finance / industry.
                 </div>
             </div>
         </div>
@@ -336,14 +395,13 @@
         <div class="contact-bar">
             <div class="contact-item"><span class="icon">📍</span> RRSSB, CUHK, Hong Kong</div>
             <div class="contact-item"><span class="icon">📧</span> <a href="mailto:leeeasonnn@163.com">leeeasonnn@163.com</a></div>
-            <div class="contact-item"><span class="icon">🌐</span> <a href="https://yisenli.github.io" target="_blank">leeeasonnn.github.io</a></div>
+            <div class="contact-item"><span class="icon">🌐</span> <a href="https://yisenli.github.io" target="_blank">yisenli.github.io</a></div>
             <div class="contact-item"><span class="icon">🔗</span> <a href="https://www.linkedin.com/in/yisen-li-05715128" target="_blank">LinkedIn</a></div>
-        
         </div>
 
-        <!-- Main two-column grid -->
+        <!-- Main content grid -->
         <div class="main-grid">
-            <!-- LEFT COLUMN -->
+            <!-- LEFT COLUMN (on desktop) -->
             <div>
                 <!-- Education -->
                 <div class="info-card">
@@ -365,96 +423,121 @@
                 <!-- Technical Skills -->
                 <div class="info-card">
                     <div class="card-title">⚙️ Technical Skills</div>
-                    <div>
-                        <div style="font-weight: 600; margin-bottom: 0.4rem; color:#1b3f64;">Experimental & lab</div>
+                    
+                    <!-- Programming & Development -->
+                    <div class="skill-subsection">
+                        <div class="skill-subsection-title">Programming & Development</div>
+                        <div class="skill-badge-container">
+                            <span class="skill-badge">Python (NumPy, PyTorch)</span>
+                            <span class="skill-badge">MATLAB</span>
+                            <span class="skill-badge">C (Basic)</span>
+                        </div>
+                    </div>
+
+                    <!-- Machine Learning & Data Science -->
+                    <div class="skill-subsection">
+                        <div class="skill-subsection-title">🤖 Machine Learning & Data Science</div>
+                        <div class="skill-line">
+                            <span class="skill-line-label">Machine Learning & Modeling:</span>
+                            <span class="skill-badge">MLP</span>
+                            <span class="skill-badge">SGD</span>
+                            <span class="skill-badge">MCMC</span>
+                        </div>
+                        <div class="skill-line">
+                            <span class="skill-line-label">Image Processing:</span>
+                            <span class="skill-badge"> Classification</span>
+                            <span class="skill-badge"> Segmentation</span>
+                        </div>
+                        <div class="skill-line">
+                            <span class="skill-line-label">Data Processing:</span>
+                            <span class="skill-badge">Preprocessing</span>
+                            <span class="skill-badge">Structured Storage</span>
+                            <span class="skill-badge">Batch/Sampling Processing</span>
+                            <span class="skill-badge">Visual Analytics</span>
+                        </div>
+                    </div>
+
+                    <!-- Numerical Modeling & Simulation -->
+                    <div class="skill-subsection">
+                        <div class="skill-subsection-title">🔬 Numerical Modeling & Simulation</div>
+                        <div class="skill-badge-container">
+                            <span class="skill-badge">Solidworks</span>
+                            <span class="skill-badge">Comsol Multiphysics</span>
+                        </div>
+                    </div>
+
+                    <!-- Laboratory & Experimental Skills -->
+                    <div class="skill-subsection">
+                        <div class="skill-subsection-title">🧪 Laboratory & Experimental Skills</div>
                         <div class="skill-badge-container">
                             <span class="skill-badge">Electronics</span>
-                            <span class="skill-badge">Optical microscopy</span>
-                            <span class="skill-badge">Molecular biology</span>
+                            <span class="skill-badge">Soft Lithography</span>
+                            <span class="skill-badge">Optical Microscopy</span>
+                            <span class="skill-badge">Molecular Biology</span>
                             <span class="skill-badge">Microbiology</span>
                             <span class="skill-badge">Microfluidics</span>
-                           
-                            
-                            
                         </div>
                     </div>
-                    <div style="margin-top: 1.2rem;">
-                        <div style="font-weight: 600; margin-bottom: 0.4rem; color:#1b3f64;">Data & computation</div>
-                        <div class="skill-badge-container">
-                            <span class="skill-badge">Image analysis</span>
-                            <span class="skill-badge">Numerical modeling</span>
-                            <span class="skill-badge">Solidworks</span>
-                            <span class="skill-badge">Comsol</span>
-                            <span class="skill-badge">MATLAB</span>
-                            <span class="skill-badge">Python</span>
-                        </div>
-                    </div>
-                    <div style="margin-top: 1.2rem;">
-                        <div style="font-weight: 600; margin-bottom: 0.4rem; color:#1b3f64;">Languages</div>
+
+                    <!-- Languages -->
+                    <div class="skill-subsection">
+                        <div class="skill-subsection-title">🗣️ Languages</div>
                         <div class="skill-badge-container">
                             <span class="skill-badge">Chinese </span>
                             <span class="skill-badge">English </span>
-                            <span class="skill-badge">Hokkien </span>
+                            <span class="skill-badge">Hokkien</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- Conference & Papers – adjusted format -->
+                <!-- Conference & Papers -->
                 <div class="info-card">
                     <div class="card-title">🗓️ Conference & Papers</div>
-                    
-                    <!-- Paper 1 -->
                     <div class="paper-item">
                         <div class="paper-title">Mechanical interaction enables a collective mode of protocell proliferation</div>
                         <div class="paper-authors">Yisen Li, Yilin Wu (2025)</div>
                         <div class="paper-status">Under review</div>
                     </div>
-                    
-                    <!-- Paper 2 -->
                     <div class="paper-item">
                         <div class="paper-title">Controllable division and growth of L-form cells</div>
                         <div class="paper-authors">Yisen Li, Yilin Wu</div>
                         <div class="paper-status">In Preparation</div>
                     </div>
-                    
-                    <!-- Conference 2024 -->
                     <div class="paper-item">
                         <div class="paper-title">APS March Meeting 2024</div>
                         <div class="paper-authors">Minneapolis</div>
                         <div class="paper-status">Oral</div>
                         <div class="item-desc">“Proliferation of model protocells”</div>
                     </div>
-                    
-                    <!-- Conference 2019 -->
                     <div class="paper-item">
                         <div class="paper-title">APS March Meeting 2019</div>
                         <div class="paper-authors">Boston</div>
                         <div class="paper-status">Poster</div>
-                        <div class="item-desc">“Propagation of wall‑less bacteria”</div>
+                        <div class="item-desc">“Propagation of wall-less bacteria”</div>
                     </div>
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN -->
+            <!-- RIGHT COLUMN (on desktop) -->
             <div>
                 <!-- Research Projects -->
                 <div class="info-card">
                     <div class="card-title">🔬 Research Projects</div>
                     <div class="paper-item">
-                        <div class="paper-title">Machine Learning‑Based Biological Image Analysis</div>
-                        <div class="paper-authors">CUHK · 2021 – now</div>
-                        <div class="item-desc" style="margin-top: 0.2rem;">
-                            • Processed gegabyte‑scale live‑cell imaging data (acquisition, preprocessing, structured storage, visual analysis)<br>
-                            • Designed batch pipelines.  <br>
-                            • Achieved automatic classification of chromosome states in microscopy images using pixel‑based machine learning.
-                            </div>
+                        <div class="paper-title">Machine Learning-Based Biological Image Analysis</div>
+                        <div class="paper-authors">CUHK · 2021 – present</div>
+                        <div class="item-desc" style="margin-top:0.25rem;">
+                            • Processed gigabyte-scale live-cell imaging data (acquisition, preprocessing, structured storage, visualization)<br>
+                            • Designed batch processing pipelines<br>
+                            • Developed automatic classification of chromosome states using pixel-based machine learning
+                        </div>
                     </div>
                     <div class="paper-item">
-                        <div class="paper-title">Numerical Simulation of Cellular Dynamic Processes  </div>
+                        <div class="paper-title">Numerical Simulation of Cellular Dynamic Processes</div>
                         <div class="paper-authors">CUHK · 2017 – 2021</div>
-                        <div class="item-desc" style="margin-top: 0.2rem;">
-                            • Implemented the Cellular Potts model in MATLAB; optimized system free energy with Markov Chain Monte Carlo to simulate bacterial growth and division. <br>
-                            • Independently developed all simulation code, and performed time‑series analysis to extract key features..
+                        <div class="item-desc" style="margin-top:0.25rem;">
+                            • Implemented Cellular Potts model in MATLAB; optimized free energy with MCMC to simulate bacterial growth & division<br>
+                            • Independently developed all simulation code and performed time-series feature extraction
                         </div>
                     </div>
                 </div>
@@ -466,17 +549,17 @@
                         <li>
                             <div class="item-title">Teaching Assistant</div>
                             <div class="item-meta">CUHK · 2017 – 2021</div>
-                            <div class="item-desc">Courses: General Physics, Physics Lab, Introduction to Biophysics, Introduction to Soft Matter Physics, Instrumentation.</div>
+                            <div class="item-desc">Courses: General Physics, Physics Lab, Introduction to Biophysics, Introduction to Soft Matter Physics, Instrumentation</div>
                         </li>
                         <li>
                             <div class="item-title">Teaching Practicum</div>
                             <div class="item-meta">High School affiliated to BNU, Xiamen · Oct 2016</div>
-                            <div class="item-desc">Junior high physics teacher.</div>
+                            <div class="item-desc">Junior high school physics teacher</div>
                         </li>
                         <li>
                             <div class="item-title">Office Director, Youth Exchange Association</div>
                             <div class="item-meta">Beijing Normal University · 2014 – 2015</div>
-                            <div class="item-desc">Organised 10+ cross‑cultural exchange events; managed planning, promotion, venue coordination, budget, and cross‑department communication.</div>
+                            <div class="item-desc">Organized 10+ cross-cultural exchange events; managed planning, promotion, venue, budget, and cross-department coordination</div>
                         </li>
                     </ul>
                 </div>
@@ -485,26 +568,24 @@
                 <div class="info-card">
                     <div class="card-title">🏆 Highlights</div>
                     <div class="honor-grid">
-                        
-                        <span class="honor-item">BNU First-class Scholarship (2014，2015，2016)</span>
+                        <span class="honor-item">BNU First-class Scholarship (2014, 2015, 2016)</span>
                         <span class="honor-item">Excellent Teaching Assistant (2019)</span>
                     </div>
-                    
                 </div>
             </div>
 
-            <!-- Full-width extra info -->
-            <div class="full-width" style="margin-top: 0.5rem;">
-                <div class="info-card" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center;">
-                    <span style="font-weight: 500;">📬  Updated March 2025</span>
-                    <span style="color: #3f6792;">📧 leeeasonnn@163.com  </span>
+            <!-- Full-width section -->
+            <div class="full-width" style="margin-top:0.8rem;">
+                <div class="info-card" style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; font-size:0.96rem;">
+                    <span style="font-weight:500;">📬 Updated March 2025</span>
+                    <span style="color:#3f6792;">📧 leeeasonnn@163.com</span>
                 </div>
             </div>
         </div>
 
-        <!-- Footer -->
+        <!-- Footer note -->
         <div class="footer-note">
-            ⚡  Yisen Li —  Physics PhD with strong quantitative, programming, and data analysis skills, aiming to apply them to quantitative finance and data-driven research.
+            ⚡ Yisen Li — Physics PhD with strong quantitative, programming, and data analysis skills, aiming to apply them in quantitative finance and data-driven research.
         </div>
     </div>
 </body>
